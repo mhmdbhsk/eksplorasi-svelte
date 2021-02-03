@@ -1,5 +1,5 @@
 <script>
-  import {} from 'os';
+  import { onMount, onDestroy, beforeUpdate, afterUpdate } from 'svelte';
 
   let description = '';
   $: characters = description.length;
@@ -11,9 +11,23 @@
   }
 
   const handleSubmit = (event) => {
-    console.log('form submitted. thanks!');
+    console.log('Form Submitted. Thanks!');
     description = '';
   };
+
+  onMount(() => {
+    console.log('onMount');
+  });
+
+  onDestroy(() => {
+    console.log('onDestroy');
+  });
+  beforeUpdate(() => {
+    console.log('beforeUpdate');
+  });
+  afterUpdate(() => {
+    console.log('afterUpdate');
+  });
 </script>
 
 <div class="form-group">
